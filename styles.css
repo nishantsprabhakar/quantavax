@@ -554,6 +554,10 @@ canvas {
 }
 
 .guide-hero,
+.partnership-hero,
+.narrative-flow article,
+.rail-intro,
+.stage-intro,
 .guide-flow article,
 .interactive-guide,
 .deep-section,
@@ -570,6 +574,97 @@ canvas {
   background: var(--panel);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+}
+
+.partnership-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  gap: 18px;
+  margin-top: 20px;
+  padding: clamp(22px, 4vw, 42px);
+}
+
+.partnership-copy h2,
+.stage-intro h2 {
+  max-width: 980px;
+  margin-bottom: 16px;
+  font-size: clamp(1.7rem, 4vw, 3.5rem);
+  line-height: 1.03;
+}
+
+.partnership-copy p,
+.narrative-flow p,
+.rail-intro strong,
+.stage-intro h2,
+.partnership-stack strong {
+  line-height: 1.6;
+}
+
+.partnership-copy p,
+.narrative-flow p {
+  color: var(--muted);
+}
+
+.partnership-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.partnership-stack article {
+  padding: 18px;
+  border: 1px solid rgba(126, 242, 216, 0.18);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(57, 245, 182, 0.13), rgba(101, 214, 255, 0.08)), rgba(2, 9, 10, 0.3);
+}
+
+.partnership-stack span,
+.narrative-flow span,
+.rail-intro span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 0.76rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.partnership-stack strong,
+.rail-intro strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+
+.narrative-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.narrative-flow article {
+  min-height: 190px;
+  padding: 18px;
+}
+
+.narrative-flow strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+}
+
+.rail-intro {
+  padding: 16px;
+}
+
+.stage-intro {
+  padding: 20px;
+}
+
+.stage-intro h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.35rem, 3vw, 2.35rem);
 }
 
 .guide-hero {
@@ -819,6 +914,8 @@ canvas {
   .visual-grid,
   .simulation-grid,
   .evidence-band,
+  .partnership-hero,
+  .narrative-flow,
   .guide-hero,
   .guide-flow,
   .concept-layout,
@@ -883,6 +980,7 @@ canvas {
   }
 
   .guide-flow,
+  .narrative-flow,
   .detail-grid,
   .algorithm-lanes {
     grid-template-columns: 1fr;
