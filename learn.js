@@ -3,7 +3,7 @@ const conceptContent = {
     kicker: "Structure",
     title: "Folding controls whether the mRNA message is stable and readable.",
     body: "mRNA is a long, flexible strand. Parts of the strand can pair with other parts, creating hairpins and loops. Those shapes affect how easily the molecule degrades, how ribosomes read it, and whether it produces the intended antigen efficiently.",
-    note: "The simulator’s folding arcs are a simplified visual metaphor for secondary-structure prediction, not a full atomic model.",
+    note: "The console's folding arcs are a simplified representation of secondary-structure prediction, not a full atomic model.",
     meter: "82%"
   },
   quantum: {
