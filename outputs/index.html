@@ -217,16 +217,34 @@
               <span>Algorithm 01</span>
               <h3>QUBO-CVaR mRNA fold search</h3>
               <p>Base-pair constraints become a QUBO objective. A variational sampler searches low-energy folds, then a CVaR filter keeps the most stable tail of the distribution.</p>
+              <ol class="algorithm-steps">
+                <li><b>Input:</b> possible RNA base-pair decisions.</li>
+                <li><b>QUBO:</b> reward stable pairs and penalize impossible overlaps.</li>
+                <li><b>CVaR:</b> keep the best low-energy samples, not the noisy average.</li>
+                <li><b>Output:</b> fold candidates ranked by energy and feasibility.</li>
+              </ol>
             </article>
             <article class="algorithm-card">
               <span>Algorithm 02</span>
               <h3>VQE conformer confirmation</h3>
               <p>Antigen conformations are scored as energy states. Classical docking priors narrow the state space while quantum sampling explores hard-to-reach minima.</p>
+              <ol class="algorithm-steps">
+                <li><b>Input:</b> candidate antigen shapes and docking priors.</li>
+                <li><b>Ansatz:</b> prepare a parameterized quantum circuit.</li>
+                <li><b>Loop:</b> measure energy, update parameters, sample again.</li>
+                <li><b>Output:</b> low-energy conformers for antigen review.</li>
+              </ol>
             </article>
             <article class="algorithm-card">
               <span>Algorithm 03</span>
               <h3>Bayesian wet-lab triage</h3>
               <p>Structure stability, epitope exposure, manufacturability, and immune-receptor binding update a candidate posterior before validation slots are spent.</p>
+              <ol class="algorithm-steps">
+                <li><b>Input:</b> folding, epitope, binding, and lab-capacity signals.</li>
+                <li><b>Prior:</b> start with baseline candidate confidence.</li>
+                <li><b>Update:</b> raise or lower confidence as evidence arrives.</li>
+                <li><b>Output:</b> a shortlist for Bharat Biotech validation.</li>
+              </ol>
             </article>
           </section>
         </section>
