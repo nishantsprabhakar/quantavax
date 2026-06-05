@@ -202,6 +202,60 @@ h1 {
   background: var(--panel);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.panel:hover,
+.visual-panel:hover,
+.timeline-panel:hover,
+.algorithm-card:hover,
+.metric-card:hover,
+.evidence-band article:hover,
+.site-footer:hover,
+.partnership-hero:hover,
+.narrative-flow article:hover,
+.rail-intro:hover,
+.stage-intro:hover,
+.guide-hero:hover,
+.guide-flow article:hover,
+.interactive-guide:hover,
+.deep-section:hover,
+.detail-card:hover,
+.algorithm-explainer:hover,
+.algorithm-lanes article:hover,
+.mechanics-panel:hover,
+.mechanic-card:hover,
+.mechanic-flow div:hover,
+.accordion-panel:hover,
+.research-panel:hover,
+.guide-summary:hover,
+.panel.is-glowing,
+.visual-panel.is-glowing,
+.timeline-panel.is-glowing,
+.algorithm-card.is-glowing,
+.metric-card.is-glowing,
+.evidence-band article.is-glowing,
+.site-footer.is-glowing,
+.partnership-hero.is-glowing,
+.narrative-flow article.is-glowing,
+.rail-intro.is-glowing,
+.stage-intro.is-glowing,
+.guide-hero.is-glowing,
+.guide-flow article.is-glowing,
+.interactive-guide.is-glowing,
+.deep-section.is-glowing,
+.detail-card.is-glowing,
+.algorithm-explainer.is-glowing,
+.algorithm-lanes article.is-glowing,
+.mechanics-panel.is-glowing,
+.mechanic-card.is-glowing,
+.mechanic-flow div.is-glowing,
+.accordion-panel.is-glowing,
+.research-panel.is-glowing,
+.guide-summary.is-glowing {
+  border-color: rgba(57, 245, 182, 0.7);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.46), 0 0 34px rgba(57, 245, 182, 0.2), inset 0 0 18px rgba(101, 214, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .panel::before,
@@ -566,7 +620,7 @@ canvas {
 
 .site-footer p {
   max-width: 980px;
-  margin-bottom: 0;
+  margin: 0 auto 12px;
   color: var(--muted);
   line-height: 1.5;
 }
@@ -605,6 +659,7 @@ canvas {
   background: var(--panel);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background 180ms ease;
 }
 
 .partnership-hero {

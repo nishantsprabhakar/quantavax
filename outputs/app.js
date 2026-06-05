@@ -52,6 +52,8 @@ const vizState = {
   particles: []
 };
 
+let runFeedbackTimer;
+
 function cleanSequence(value) {
   return value.toUpperCase().replace(/T/g, "U").replace(/[^AUGC]/g, "");
 }
@@ -525,8 +527,11 @@ function clamp(value, min, max) {
 [els.sequence, els.qubits, els.mitigation, els.labCapacity, els.baseWeeks, els.baseCost].forEach((el) => {
   el.addEventListener("input", simulate);
 });
-els.run.addEventListener("click", simulate);
-els.mutate.addEventListener("click", mutateSequence);
+els.run.addEventListener("click", runSimulator);
+els.mutate.addEventListener("click", (event) => {
+  event.stopPropagation();
+  mutateSequence();
+});
 els.foldCanvas.addEventListener("mousemove", handleFoldHover);
 els.foldCanvas.addEventListener("mouseleave", () => {
   vizState.foldHover = -1;
@@ -613,7 +618,33 @@ function updateHotspotReadout() {
   els.hotspotReadout.textContent = `${hotspot.label}: ${Math.round(hotspot.score)}% confidence`;
 }
 
+function runSimulator(event) {
+  event.stopPropagation();
+  simulate();
+  els.run.textContent = "Run Complete";
+  document.querySelectorAll(".metric-card, .visual-panel, .timeline-panel").forEach((panel) => {
+    panel.classList.add("is-glowing");
+  });
+  clearTimeout(runFeedbackTimer);
+  runFeedbackTimer = setTimeout(() => {
+    els.run.textContent = "Run Simulator";
+    document.querySelectorAll(".metric-card, .visual-panel, .timeline-panel").forEach((panel) => {
+      panel.classList.remove("is-glowing");
+    });
+  }, 1200);
+}
+
+function wireGlowInteractions() {
+  const selector = ".panel, .visual-panel, .timeline-panel, .algorithm-card, .metric-card, .evidence-band article, .site-footer, .partnership-hero, .narrative-flow article, .rail-intro, .stage-intro";
+  document.querySelectorAll(selector).forEach((box) => {
+    box.addEventListener("click", () => {
+      box.classList.toggle("is-glowing");
+    });
+  });
+}
+
 simulate();
+wireGlowInteractions();
 requestAnimationFrame(function animate(tick) {
   drawFold(vizState.sequence, vizState.fold, tick);
   drawQuantumFlow(tick);
