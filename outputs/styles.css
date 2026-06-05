@@ -131,6 +131,31 @@ h1 {
   font-weight: 700;
 }
 
+.top-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-actions a,
+.site-footer a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.top-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(101, 214, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(101, 214, 255, 0.08);
+  color: rgba(239, 255, 250, 0.9);
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
 .pulse-dot {
   width: 10px;
   height: 10px;
@@ -524,11 +549,145 @@ canvas {
   text-transform: uppercase;
 }
 
+.explain-shell {
+  max-width: 1320px;
+}
+
+.explain-hero,
+.process-panel,
+.explain-card,
+.signal-tile {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.explain-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  gap: 18px;
+  margin-top: 20px;
+  padding: clamp(22px, 4vw, 42px);
+}
+
+.explain-hero h2 {
+  max-width: 980px;
+  margin-bottom: 16px;
+  font-size: clamp(1.7rem, 4vw, 3.5rem);
+  line-height: 1.03;
+}
+
+.explain-hero p,
+.explain-card p,
+.process-steps p,
+.readout-list p,
+.signal-tile p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.signal-tile {
+  align-self: stretch;
+  padding: 22px;
+  background: linear-gradient(135deg, rgba(57, 245, 182, 0.14), rgba(101, 214, 255, 0.08)), rgba(6, 29, 31, 0.92);
+}
+
+.signal-tile span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.signal-tile strong {
+  display: block;
+  margin: 18px 0 12px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 0.95;
+}
+
+.explain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.explain-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.explain-card,
+.process-panel {
+  padding: 22px;
+}
+
+.explain-card h2 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.process-panel {
+  margin-top: 16px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.process-steps article {
+  min-height: 180px;
+  padding: 16px;
+  border: 1px solid rgba(126, 242, 216, 0.16);
+  border-radius: 8px;
+  background: rgba(2, 9, 10, 0.28);
+}
+
+.process-steps strong,
+.readout-list strong {
+  color: var(--ink);
+}
+
+.readout-list {
+  display: grid;
+  gap: 12px;
+}
+
+.readout-list p {
+  margin: 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--green);
+  background: rgba(2, 9, 10, 0.28);
+}
+
+.caution {
+  border-color: rgba(255, 211, 124, 0.28);
+}
+
 @media (max-width: 1100px) {
   .workspace-grid,
   .visual-grid,
   .simulation-grid,
-  .evidence-band {
+  .evidence-band,
+  .explain-hero,
+  .explain-grid.three {
     grid-template-columns: 1fr;
   }
 
@@ -538,7 +697,8 @@ canvas {
   }
 
   .metric-band,
-  .algorithm-grid {
+  .algorithm-grid,
+  .process-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -573,7 +733,21 @@ canvas {
     justify-content: center;
   }
 
+  .top-actions {
+    width: 100%;
+  }
+
+  .top-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+
   .site-footer {
     flex-direction: column;
+  }
+
+  .explain-grid,
+  .process-steps {
+    grid-template-columns: 1fr;
   }
 }
