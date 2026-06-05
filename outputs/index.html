@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuantaVax | Quantum Vaccine Simulation</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">Q</div>
+          <div>
+            <p class="eyebrow">Quantum-enabled vaccine design</p>
+            <h1>QuantaVax Structure Console</h1>
+            <p class="byline">by Nishant Prabhakar</p>
+          </div>
+        </div>
+        <div class="status-strip" aria-label="simulation status">
+          <span class="pulse-dot"></span>
+          Hybrid quantum-classical run ready
+        </div>
+      </header>
+
+      <section class="workspace-grid">
+        <aside class="control-rail" aria-label="simulation controls">
+          <div class="panel compact">
+            <div class="panel-head">
+              <h2>Candidate</h2>
+              <span id="candidateTag">QVX-17</span>
+            </div>
+            <label class="field">
+              <span>mRNA sequence</span>
+              <textarea id="sequenceInput" spellcheck="false">AUGGCUACCGUUAAGGAGCUAUGGCUAACCGGUAAGCUUAACGGUACCUAAGGCUUAGCU</textarea>
+            </label>
+            <div class="button-row">
+              <button id="runButton" class="primary-button" type="button">Run simulation</button>
+              <button id="mutateButton" class="icon-button" type="button" aria-label="Generate variant" title="Generate variant">+</button>
+            </div>
+          </div>
+
+          <div class="panel compact">
+            <div class="panel-head">
+              <h2>Quantum stack</h2>
+              <span id="qubitReadout">96 qubits</span>
+            </div>
+            <label class="slider">
+              <span>Qubit budget</span>
+              <input id="qubits" type="range" min="48" max="156" value="96" step="12" />
+            </label>
+            <label class="slider">
+              <span>Error-mitigation depth</span>
+              <input id="mitigation" type="range" min="1" max="10" value="7" step="1" />
+            </label>
+            <label class="slider">
+              <span>Wet-lab validation capacity</span>
+              <input id="labCapacity" type="range" min="4" max="24" value="12" step="2" />
+            </label>
+          </div>
+
+          <div class="panel compact">
+            <div class="panel-head">
+              <h2>Baseline budget</h2>
+              <span>USD</span>
+            </div>
+            <label class="field small-field">
+              <span>Classical in-silico weeks</span>
+              <input id="baseWeeks" type="number" min="4" max="104" value="28" />
+            </label>
+            <label class="field small-field">
+              <span>Classical discovery cost, $M</span>
+              <input id="baseCost" type="number" min="1" max="250" value="24" step="0.5" />
+            </label>
+          </div>
+        </aside>
+
+        <section class="main-stage" aria-label="simulation outputs">
+          <div class="metric-band">
+            <article class="metric-card">
+              <span>Time saved</span>
+              <strong id="timeSaved">--</strong>
+              <small id="timeContext">weeks vs classical baseline</small>
+            </article>
+            <article class="metric-card accent">
+              <span>Cost avoided</span>
+              <strong id="costSaved">--</strong>
+              <small id="costContext">scenario-adjusted discovery spend</small>
+            </article>
+            <article class="metric-card">
+              <span>Confirmation confidence</span>
+              <strong id="confidence">--</strong>
+              <small>structure plus antigenicity consensus</small>
+            </article>
+            <article class="metric-card">
+              <span>Candidate count</span>
+              <strong id="candidateCount">--</strong>
+              <small>advanced to wet-lab screen</small>
+            </article>
+          </div>
+
+          <div class="visual-grid">
+            <article class="visual-panel folding-panel">
+              <div class="panel-head">
+                <h2>mRNA folding energy landscape</h2>
+                <span id="energyReadout">0.00 kcal/mol</span>
+              </div>
+              <canvas id="foldCanvas" width="920" height="520" aria-label="RNA folding visualization"></canvas>
+              <div class="canvas-hint" id="foldHint">Move the pointer across the fold map to inspect candidate pairings.</div>
+            </article>
+
+            <article class="visual-panel">
+              <div class="panel-head">
+                <h2>Antigen confirmation</h2>
+                <span id="riskLabel">balanced</span>
+              </div>
+              <canvas id="radarCanvas" width="520" height="520" aria-label="antigen confirmation radar"></canvas>
+            </article>
+          </div>
+
+          <div class="simulation-grid">
+            <article class="visual-panel quantum-panel">
+              <div class="panel-head">
+                <h2>Quantum algorithm simulator</h2>
+                <span id="quantumStage">sampling states</span>
+              </div>
+              <canvas id="quantumCanvas" width="920" height="440" aria-label="animated quantum algorithm flow"></canvas>
+              <div class="algorithm-legend">
+                <span><b class="dot sample"></b>candidate states</span>
+                <span><b class="dot filter"></b>CVaR filter</span>
+                <span><b class="dot confirm"></b>confirmed antigen</span>
+              </div>
+            </article>
+
+            <article class="visual-panel molecule-panel">
+              <div class="panel-head">
+                <h2>Molecular prediction viewer</h2>
+                <span id="hotspotReadout">click a hotspot</span>
+              </div>
+              <canvas id="moleculeCanvas" width="920" height="560" aria-label="interactive molecular prediction viewer"></canvas>
+              <div class="canvas-hint">Click colored hotspots to inspect epitope exposure and binding confidence.</div>
+            </article>
+          </div>
+
+          <section class="timeline-panel">
+            <div class="panel-head">
+              <h2>Discovery pathway compression</h2>
+              <span id="compressionReadout">--</span>
+            </div>
+            <div class="timeline" id="timeline"></div>
+          </section>
+
+          <section class="algorithm-grid">
+            <article class="algorithm-card">
+              <span>Algorithm 01</span>
+              <h3>QUBO-CVaR mRNA fold search</h3>
+              <p>Base-pair constraints become a QUBO objective. A variational sampler searches low-energy folds, then a CVaR filter keeps the most stable tail of the distribution.</p>
+            </article>
+            <article class="algorithm-card">
+              <span>Algorithm 02</span>
+              <h3>VQE conformer confirmation</h3>
+              <p>Antigen conformations are scored as energy states. Classical docking priors narrow the state space while quantum sampling explores hard-to-reach minima.</p>
+            </article>
+            <article class="algorithm-card">
+              <span>Algorithm 03</span>
+              <h3>Bayesian wet-lab triage</h3>
+              <p>Structure stability, epitope exposure, manufacturability, and immune-receptor binding update a candidate posterior before validation slots are spent.</p>
+            </article>
+          </section>
+        </section>
+      </section>
+
+      <section class="evidence-band">
+        <article>
+          <h2>Model basis</h2>
+          <p>The savings engine is a calibrated decision-support simulator. It estimates savings from fewer low-quality candidates entering wet-lab work, faster fold/conformer search, and higher validation throughput. It does not claim clinical efficacy or regulatory approval.</p>
+        </article>
+        <article>
+          <h2>Reference anchors</h2>
+          <p>IBM and Moderna reported quantum-assisted mRNA secondary-structure work at up to 60 nucleotides and 80-plus qubits. Published RNA folding work maps fold prediction into QUBO/Ising-style optimization. Drug and vaccine development cost/time baselines vary widely, so this app lets the user tune the baseline.</p>
+        </article>
+      </section>
+
+      <footer class="site-footer">
+        <div>
+          <strong>Copyright 2026 Nishant Prabhakar. All rights reserved.</strong>
+          <p>Disclaimer: QuantaVax is an exploratory simulation interface for strategic and educational analysis. It is not a medical device, diagnostic system, clinical decision tool, regulatory submission, or guarantee of vaccine efficacy, cost savings, timelines, manufacturability, safety, or approval.</p>
+        </div>
+        <span>Quantum-biotech concept simulator</span>
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
