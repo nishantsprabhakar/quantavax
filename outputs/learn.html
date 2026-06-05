@@ -12,22 +12,21 @@
         <div class="brand">
           <div class="brand-mark" aria-hidden="true">Q</div>
           <div>
-            <p class="eyebrow">Plain-English partnership guide</p>
+            <p class="eyebrow">Executive guide</p>
             <h1>QuantaVax Guide</h1>
-            <p class="byline">by Nishant Prabhakar</p>
           </div>
         </div>
         <nav class="top-actions" aria-label="site navigation">
-          <a href="./index.html">Open simulator</a>
+          <a href="./index.html">Open Simulator</a>
         </nav>
       </header>
 
       <section class="guide-hero">
         <div class="guide-copy">
-          <span class="section-kicker">What this app is</span>
-          <h2>A friendly map of a potential Bharat Biotech and IBM quantum partnership for vaccine discovery.</h2>
-          <p>QuantaVax is a concept simulator. It shows the type of workflow a quantum-enabled vaccine discovery platform might run if Bharat Biotech’s vaccine biology, validation infrastructure, and manufacturing context were paired with IBM’s quantum computing and hybrid optimization stack.</p>
-          <p>The important point is not that software replaces scientists. It does not. The point is that better computation can help scientists spend wet-lab time on candidates that already passed a more rigorous digital screen. This is a hypothetical partnership model, not an announcement that a Bharat Biotech-IBM partnership exists.</p>
+          <span class="section-kicker">Purpose</span>
+          <h2>A decision guide for a potential Bharat Biotech and IBM quantum partnership in vaccine discovery.</h2>
+          <p>QuantaVax describes how a quantum-enabled discovery layer could operate if Bharat Biotech's vaccine biology, validation infrastructure, and manufacturing context were paired with IBM's quantum computing and hybrid optimization stack.</p>
+          <p>The objective is straightforward: reduce wasted discovery cycles before wet-lab resources are committed. The concept remains hypothetical and does not represent an announced Bharat Biotech-IBM partnership.</p>
         </div>
         <aside class="guide-summary">
           <span>In one sentence</span>
@@ -67,7 +66,7 @@
       <section class="interactive-guide">
         <div class="panel-head">
           <h2>Explore the core concepts</h2>
-          <span>click a concept</span>
+          <span>select a concept</span>
         </div>
         <div class="concept-layout">
           <div class="concept-controls" role="tablist" aria-label="guide concepts">
@@ -83,7 +82,7 @@
             <div class="concept-meter" aria-hidden="true">
               <span id="conceptMeter"></span>
             </div>
-            <p class="concept-note" id="conceptNote">The simulator’s folding arcs are a simplified visual metaphor for secondary-structure prediction, not a full atomic model.</p>
+            <p class="concept-note" id="conceptNote">The simulator's folding arcs are a simplified representation of secondary-structure prediction, not a full atomic model.</p>
           </article>
         </div>
       </section>
@@ -91,7 +90,7 @@
       <section class="deep-section">
         <div class="section-intro">
           <span class="section-kicker">Detailed explanations</span>
-          <h2>What each scientific idea means in normal language</h2>
+          <h2>Scientific and operating logic behind the console</h2>
         </div>
         <div class="detail-grid">
           <article class="detail-card">
@@ -113,7 +112,7 @@
           </article>
 
           <article class="detail-card">
-            <h3>Quantum computing is used here as a search aid, not a miracle engine.</h3>
+            <h3>Quantum computing is used here as a targeted search method.</h3>
             <p>Many folding problems can be framed as optimization problems: out of many possible pairings and shapes, which arrangement has the best energy and constraint score? Some RNA structure formulations can be mapped into QUBO or Ising-style models, which are formats quantum algorithms can work with.</p>
             <p>Recent IBM and Moderna work applied CVaR-based variational quantum algorithms to mRNA secondary-structure prediction at sequence lengths up to 60 nucleotides and up to 80 qubits. That is meaningful research progress, but it is still early compared with full production-scale vaccine design.</p>
           </article>
@@ -123,13 +122,13 @@
       <section class="algorithm-explainer">
         <div class="panel-head">
           <h2>What the algorithms mean</h2>
-          <span>without jargon overload</span>
+          <span>operating view</span>
         </div>
         <div class="algorithm-lanes">
           <article>
             <span>QUBO</span>
             <h3>Turn biology into choices</h3>
-            <p>The app treats possible base pairings as yes-or-no decisions. The scoring model rewards stable pairings and penalizes impossible or conflicting ones.</p>
+            <p>The model treats possible base pairings as yes-or-no decisions. The scoring system rewards stable pairings and penalizes impossible or conflicting ones.</p>
           </article>
           <article>
             <span>CVaR</span>
@@ -159,7 +158,7 @@
           <div class="mechanic-title">
             <span>Algorithm 01</span>
             <h3>QUBO-CVaR mRNA fold search</h3>
-            <p>This is the part that asks: “Given this mRNA sequence, which internal base pairings create a stable and biologically plausible fold?”</p>
+            <p>This step asks which internal base pairings create a stable and biologically plausible mRNA fold.</p>
           </div>
           <div class="mechanic-flow">
             <div>
@@ -168,7 +167,7 @@
             </div>
             <div>
               <strong>2. Build the QUBO score</strong>
-              <p>QUBO means Quadratic Unconstrained Binary Optimization. In plain language, it is a scoring table for yes-or-no decisions. Good pairings reduce the score. Conflicting choices, such as one base trying to pair with two different bases, add penalties.</p>
+              <p>QUBO means Quadratic Unconstrained Binary Optimization. It is a scoring table for yes-or-no decisions. Good pairings reduce the score. Conflicting choices, such as one base trying to pair with two different bases, add penalties.</p>
             </div>
             <div>
               <strong>3. Sample many candidate folds</strong>
@@ -180,7 +179,7 @@
             </div>
             <div>
               <strong>5. Return fold candidates</strong>
-              <p>The output is a ranked set of possible mRNA folds. In the app, these appear as arcs in the folding energy landscape. Lower-energy, non-conflicting pairings are treated as more promising for stability and translation analysis.</p>
+              <p>The output is a ranked set of possible mRNA folds. In the console, these appear as arcs in the folding energy landscape. Lower-energy, non-conflicting pairings are treated as more promising for stability and translation analysis.</p>
             </div>
           </div>
         </article>
@@ -189,7 +188,7 @@
           <div class="mechanic-title">
             <span>Algorithm 02</span>
             <h3>VQE/VQA conformer confirmation</h3>
-            <p>This is the part that asks: “Does the antigen likely settle into a shape that exposes useful immune-recognition regions?”</p>
+            <p>This step asks whether the antigen is likely to settle into a shape that exposes useful immune-recognition regions.</p>
           </div>
           <div class="mechanic-flow">
             <div>
@@ -206,7 +205,7 @@
             </div>
             <div>
               <strong>4. Compare exposed hotspots</strong>
-              <p>Once promising shapes are found, the model checks whether important surfaces are exposed. In the app, colored hotspots represent predicted epitope exposure or binding confidence. These are decision-support signals, not experimental proof.</p>
+              <p>Once promising shapes are found, the model checks whether important surfaces are exposed. In the console, colored hotspots represent predicted epitope exposure or binding confidence. These are decision-support signals, not experimental proof.</p>
             </div>
             <div>
               <strong>5. Output confirmation confidence</strong>
@@ -219,7 +218,7 @@
           <div class="mechanic-title">
             <span>Algorithm 03</span>
             <h3>Bayesian wet-lab triage</h3>
-            <p>This is the part that asks: “Given all the evidence so far, which candidates should Bharat Biotech test first?”</p>
+            <p>This step ranks which candidates Bharat Biotech should test first, based on the evidence accumulated so far.</p>
           </div>
           <div class="mechanic-flow">
             <div>
@@ -248,16 +247,12 @@
 
       <section class="accordion-panel">
         <div class="panel-head">
-          <h2>Questions people naturally ask</h2>
-          <span>tap to expand</span>
+          <h2>Leadership questions</h2>
+          <span>expand for detail</span>
         </div>
         <details open>
           <summary>Does this app prove a vaccine will work?</summary>
           <p>No. It is a simulation and product concept. Real vaccine proof requires wet-lab validation, animal studies where appropriate, clinical trials, manufacturing quality control, regulatory review, and safety monitoring.</p>
-        </details>
-        <details>
-          <summary>Why not just use AI instead of quantum computing?</summary>
-          <p>AI is already important in biology, and a real platform would likely use AI, classical physics, and quantum methods together. Quantum algorithms are interesting for specific optimization and sampling problems where the number of possible states grows very quickly. They are not a general replacement for AI.</p>
         </details>
         <details>
           <summary>Why does the simulator show savings?</summary>
@@ -273,7 +268,7 @@
         <div>
           <span class="section-kicker">Research anchors</span>
           <h2>What the guide is based on</h2>
-          <p>The page is intentionally careful: current quantum mRNA work supports feasibility and research momentum, not blanket claims of clinical or commercial advantage.</p>
+          <p>Research boundary: current quantum mRNA work supports feasibility and research momentum, not blanket claims of clinical or commercial advantage.</p>
         </div>
         <ul>
           <li><a href="https://www.ibm.com/quantum/blog/moderna-case-study">IBM Quantum / Moderna case study</a>: CVaR-based variational quantum algorithm work on a 60-nucleotide mRNA secondary-structure problem using 80 qubits.</li>
@@ -286,12 +281,10 @@
         </ul>
       </section>
 
-      <footer class="site-footer">
+      <footer class="site-footer attribution-footer">
         <div>
-          <strong>Copyright 2026 Nishant Prabhakar. All rights reserved.</strong>
-          <p>Disclaimer: This guide explains a hypothetical QuantaVax partnership concept in simple language. It is not an announcement of a Bharat Biotech-IBM partnership and is not scientific, medical, investment, legal, or regulatory advice.</p>
+          <strong>Nishant Prabhakar</strong>
         </div>
-        <span><a href="./index.html">Open simulator</a></span>
       </footer>
     </main>
     <script src="./learn.js"></script>
