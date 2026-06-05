@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuantaVax | Layman Guide</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell explain-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">Q</div>
+          <div>
+            <p class="eyebrow">Plain-English explanation</p>
+            <h1>Understanding QuantaVax</h1>
+            <p class="byline">by Nishant Prabhakar</p>
+          </div>
+        </div>
+        <nav class="top-actions" aria-label="site navigation">
+          <a href="./index.html">Back to simulator</a>
+        </nav>
+      </header>
+
+      <section class="explain-hero">
+        <div>
+          <span class="section-kicker">The simple idea</span>
+          <h2>A vaccine candidate is like a tiny instruction manual. QuantaVax simulates how well that manual might work before expensive lab testing begins.</h2>
+          <p>mRNA vaccines use a genetic message to tell the body how to make a harmless piece of a pathogen. The immune system studies that piece and learns what to attack later. This app shows how a quantum-assisted software platform could help scientists choose stronger vaccine candidates earlier.</p>
+        </div>
+        <div class="signal-tile">
+          <span>What the app is doing</span>
+          <strong>Predict, rank, confirm</strong>
+          <p>It takes an mRNA sequence, predicts possible folding and antigen shapes, scores the best candidates, and estimates how much lab time and cost could be avoided by screening better options first.</p>
+        </div>
+      </section>
+
+      <section class="explain-grid">
+        <article class="explain-card">
+          <span class="section-kicker">1</span>
+          <h2>What is mRNA?</h2>
+          <p>mRNA is a temporary biological message. Imagine writing a recipe on a sticky note, giving it to a kitchen, and then throwing the note away after the dish is made. In a vaccine, the recipe tells cells how to make a small, harmless target that trains the immune system.</p>
+        </article>
+
+        <article class="explain-card">
+          <span class="section-kicker">2</span>
+          <h2>Why does structure matter?</h2>
+          <p>The same letters can behave differently depending on how the molecule folds. Folding affects stability, how long the message lasts, and whether the body sees the right immune target. Better structure prediction helps avoid candidates that look good on paper but behave poorly in reality.</p>
+        </article>
+
+        <article class="explain-card">
+          <span class="section-kicker">3</span>
+          <h2>What is an antigen?</h2>
+          <p>An antigen is the part of a pathogen that the immune system notices. The goal is to present an antigen in a shape that is recognizable, stable, and likely to trigger useful immune memory. QuantaVax simulates whether a candidate antigen has promising visible regions, called epitopes.</p>
+        </article>
+
+        <article class="explain-card">
+          <span class="section-kicker">4</span>
+          <h2>Where does quantum computing fit?</h2>
+          <p>Quantum computers are not magic supercomputers for everything. They are useful for certain search problems where there are many possible states. Molecular folding and conformational search can create huge numbers of possible arrangements, so a hybrid quantum-classical method may help search the difficult parts more efficiently.</p>
+        </article>
+      </section>
+
+      <section class="process-panel">
+        <div class="panel-head">
+          <h2>The workflow in ordinary language</h2>
+          <span>from sequence to decision</span>
+        </div>
+        <div class="process-steps">
+          <article>
+            <strong>Sequence input</strong>
+            <p>The scientist enters an mRNA sequence. The app cleans the letters and treats them as a candidate vaccine message.</p>
+          </article>
+          <article>
+            <strong>Fold prediction</strong>
+            <p>The app estimates which letters may pair with each other and how stable those pairings are. The folding arcs show those predicted pairings.</p>
+          </article>
+          <article>
+            <strong>Quantum sampling</strong>
+            <p>The simulator creates many possible candidate states. A quantum-style search flow explores them and keeps the most promising low-risk group.</p>
+          </article>
+          <article>
+            <strong>Antigen confirmation</strong>
+            <p>The molecular viewer shows likely hotspots on the antigen. These represent regions that may be exposed enough for immune recognition or binding.</p>
+          </article>
+          <article>
+            <strong>Wet-lab triage</strong>
+            <p>Only the best candidates are sent forward. The idea is not to replace the lab, but to help the lab spend its time on better options.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="explain-grid three">
+        <article class="explain-card">
+          <span class="section-kicker">Algorithm 01</span>
+          <h2>QUBO-CVaR fold search</h2>
+          <p>QUBO is a way of turning a problem into yes-or-no choices. Here the choices are possible base pairings in the mRNA. CVaR is a filter that focuses on the best-performing tail of the results, instead of averaging everything together.</p>
+        </article>
+        <article class="explain-card">
+          <span class="section-kicker">Algorithm 02</span>
+          <h2>VQE conformer scoring</h2>
+          <p>VQE is a hybrid method where a classical computer and a quantum processor work together. The classical side prepares and improves the search. The quantum side samples difficult energy patterns that may represent molecular shapes.</p>
+        </article>
+        <article class="explain-card">
+          <span class="section-kicker">Algorithm 03</span>
+          <h2>Bayesian triage</h2>
+          <p>Bayesian triage means updating confidence as more evidence appears. If structure, stability, binding, and manufacturability all look promising, the candidate earns a stronger score. If one area is weak, confidence drops.</p>
+        </article>
+      </section>
+
+      <section class="process-panel">
+        <div class="panel-head">
+          <h2>How to read the simulator</h2>
+          <span>what each number means</span>
+        </div>
+        <div class="readout-list">
+          <p><strong>Time saved</strong> estimates how many weeks could be avoided in early discovery by searching and filtering candidates more efficiently.</p>
+          <p><strong>Cost avoided</strong> estimates discovery spend that may be avoided by sending fewer weak candidates into expensive validation work.</p>
+          <p><strong>Confirmation confidence</strong> is a combined score from structure stability, antigen exposure, binding signal, noise control, and validation capacity.</p>
+          <p><strong>Candidate count</strong> shows how many candidates still need lab screening after computational triage.</p>
+          <p><strong>Discovery pathway compression</strong> compares the classical baseline timeline with the simulated quantum-assisted workflow.</p>
+        </div>
+      </section>
+
+      <section class="explain-hero caution">
+        <div>
+          <span class="section-kicker">Important caution</span>
+          <h2>This is a strategic simulator, not a medical claim.</h2>
+          <p>The application demonstrates how a quantum-biotech platform could support vaccine discovery. It does not prove that a vaccine works, replace experiments, predict clinical success, or guarantee savings. Real vaccine development still requires wet-lab testing, animal studies, clinical trials, manufacturing validation, regulatory review, and safety monitoring.</p>
+        </div>
+        <div class="signal-tile">
+          <span>Best use</span>
+          <strong>Decision support</strong>
+          <p>Use it to explain the opportunity, compare scenarios, and show how better computation can reduce waste before laboratory resources are committed.</p>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div>
+          <strong>Copyright 2026 Nishant Prabhakar. All rights reserved.</strong>
+          <p>Disclaimer: This page explains the QuantaVax concept in simple language. It is not scientific, medical, investment, legal, or regulatory advice.</p>
+        </div>
+        <span><a href="./index.html">Open simulator</a></span>
+      </footer>
+    </main>
+  </body>
+</html>
