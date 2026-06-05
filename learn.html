@@ -149,6 +149,103 @@
         </div>
       </section>
 
+      <section class="mechanics-panel">
+        <div class="panel-head">
+          <h2>How each algorithm is working</h2>
+          <span>step by step</span>
+        </div>
+
+        <article class="mechanic-card">
+          <div class="mechanic-title">
+            <span>Algorithm 01</span>
+            <h3>QUBO-CVaR mRNA fold search</h3>
+            <p>This is the part that asks: “Given this mRNA sequence, which internal base pairings create a stable and biologically plausible fold?”</p>
+          </div>
+          <div class="mechanic-flow">
+            <div>
+              <strong>1. Convert biology into binary choices</strong>
+              <p>Every possible base pair is treated like a yes-or-no switch. For example, position 8 pairing with position 42 is one possible decision. The model allows valid RNA pairings such as A:U and G:C, and it can include weaker wobble pairings such as G:U.</p>
+            </div>
+            <div>
+              <strong>2. Build the QUBO score</strong>
+              <p>QUBO means Quadratic Unconstrained Binary Optimization. In plain language, it is a scoring table for yes-or-no decisions. Good pairings reduce the score. Conflicting choices, such as one base trying to pair with two different bases, add penalties.</p>
+            </div>
+            <div>
+              <strong>3. Sample many candidate folds</strong>
+              <p>A quantum-compatible optimizer searches combinations of switches. The simulator visualizes this as candidate states moving through the quantum algorithm panel. In real research, this can be run as a hybrid workflow using classical optimization wrapped around quantum sampling.</p>
+            </div>
+            <div>
+              <strong>4. Apply CVaR filtering</strong>
+              <p>CVaR means Conditional Value at Risk. Instead of trusting the average of all samples, it focuses on the best low-energy tail. For folding, that means the algorithm pays more attention to the most promising structures and less attention to noisy weak samples.</p>
+            </div>
+            <div>
+              <strong>5. Return fold candidates</strong>
+              <p>The output is a ranked set of possible mRNA folds. In the app, these appear as arcs in the folding energy landscape. Lower-energy, non-conflicting pairings are treated as more promising for stability and translation analysis.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mechanic-card">
+          <div class="mechanic-title">
+            <span>Algorithm 02</span>
+            <h3>VQE/VQA conformer confirmation</h3>
+            <p>This is the part that asks: “Does the antigen likely settle into a shape that exposes useful immune-recognition regions?”</p>
+          </div>
+          <div class="mechanic-flow">
+            <div>
+              <strong>1. Start with candidate conformations</strong>
+              <p>A conformer is a possible 3D arrangement of a molecule. Classical structure tools can generate plausible antigen shapes and docking priors. QuantaVax treats those as starting guesses rather than final answers.</p>
+            </div>
+            <div>
+              <strong>2. Encode energy as an objective</strong>
+              <p>The algorithm needs a score that says whether one shape is more plausible than another. Lower-energy structures are usually more physically plausible, although biology also depends on solvent, temperature, formulation, and experimental context.</p>
+            </div>
+            <div>
+              <strong>3. Run a variational loop</strong>
+              <p>VQE, or Variational Quantum Eigensolver, uses a parameterized quantum circuit. The quantum side samples energy behavior. The classical side adjusts the circuit parameters. The loop repeats until the sampled score improves.</p>
+            </div>
+            <div>
+              <strong>4. Compare exposed hotspots</strong>
+              <p>Once promising shapes are found, the model checks whether important surfaces are exposed. In the app, colored hotspots represent predicted epitope exposure or binding confidence. These are decision-support signals, not experimental proof.</p>
+            </div>
+            <div>
+              <strong>5. Output confirmation confidence</strong>
+              <p>The final confidence score combines conformer plausibility, predicted exposure, binding signal, and noise control. It helps decide whether the candidate deserves wet-lab validation.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="mechanic-card">
+          <div class="mechanic-title">
+            <span>Algorithm 03</span>
+            <h3>Bayesian wet-lab triage</h3>
+            <p>This is the part that asks: “Given all the evidence so far, which candidates should Bharat Biotech test first?”</p>
+          </div>
+          <div class="mechanic-flow">
+            <div>
+              <strong>1. Start with a prior</strong>
+              <p>A prior is the starting belief about a candidate before new evidence is added. A candidate may begin with moderate confidence simply because it matches the target design brief.</p>
+            </div>
+            <div>
+              <strong>2. Add structure evidence</strong>
+              <p>If the mRNA fold looks stable and the antigen shape looks plausible, confidence rises. If folding is unstable, noisy, or conflicts with translation goals, confidence drops.</p>
+            </div>
+            <div>
+              <strong>3. Add biological and operational evidence</strong>
+              <p>The model then considers epitope exposure, binding signal, manufacturability, and wet-lab capacity. This matters because a beautiful computational structure is not useful if it cannot be made, tested, or advanced realistically.</p>
+            </div>
+            <div>
+              <strong>4. Update the posterior</strong>
+              <p>The posterior is the revised confidence after evidence is included. In the simulator, this becomes the confirmation confidence, candidate count, and pathway compression readouts.</p>
+            </div>
+            <div>
+              <strong>5. Produce the shortlist</strong>
+              <p>The output is a smaller set of candidates for validation. This is where time and cost savings may appear: fewer weak candidates consume expensive lab slots.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
       <section class="accordion-panel">
         <div class="panel-head">
           <h2>Questions people naturally ask</h2>
