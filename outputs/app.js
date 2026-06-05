@@ -530,7 +530,7 @@ els.mutate.addEventListener("click", mutateSequence);
 els.foldCanvas.addEventListener("mousemove", handleFoldHover);
 els.foldCanvas.addEventListener("mouseleave", () => {
   vizState.foldHover = -1;
-  els.foldHint.textContent = "Move the pointer across the fold map to inspect candidate pairings.";
+  els.foldHint.textContent = "This shows how the mRNA message may fold. Better folding predictions help avoid unstable or inefficient candidate messages.";
 });
 els.moleculeCanvas.addEventListener("mousemove", handleMoleculeHover);
 els.moleculeCanvas.addEventListener("mouseleave", () => {
@@ -570,7 +570,7 @@ function handleFoldHover(event) {
     const pair = vizState.fold.pairs[best];
     els.foldHint.textContent = `Pair ${pair.i + 1}-${pair.j + 1}: ${sequence[pair.i]}:${sequence[pair.j]}, energy ${pair.energy.toFixed(2)} kcal/mol`;
   } else {
-    els.foldHint.textContent = "Move the pointer across the fold map to inspect candidate pairings.";
+    els.foldHint.textContent = "This shows how the mRNA message may fold. Better folding predictions help avoid unstable or inefficient candidate messages.";
   }
 }
 

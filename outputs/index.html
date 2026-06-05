@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>QuantaVax | Quantum Vaccine Simulation</title>
+    <title>QuantaVax | Partnership Simulation</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -12,25 +12,80 @@
         <div class="brand">
           <div class="brand-mark" aria-hidden="true">Q</div>
           <div>
-            <p class="eyebrow">Quantum-enabled vaccine design</p>
-            <h1>QuantaVax Structure Console</h1>
+            <p class="eyebrow">Bharat Biotech x IBM concept simulation</p>
+            <h1>QuantaVax Partnership Simulator</h1>
             <p class="byline">by Nishant Prabhakar</p>
           </div>
         </div>
         <div class="status-strip" aria-label="simulation status">
           <span class="pulse-dot"></span>
-          Hybrid quantum-classical run ready
+          Exploratory partnership model
         </div>
         <nav class="top-actions" aria-label="site navigation">
           <a href="./learn.html">Guide</a>
         </nav>
       </header>
 
+      <section class="partnership-hero">
+        <div class="partnership-copy">
+          <span class="section-kicker">The narrative</span>
+          <h2>What if Bharat Biotech’s vaccine biology and validation infrastructure were paired with IBM’s quantum computing stack?</h2>
+          <p>QuantaVax simulates that potential partnership as a discovery workflow. Bharat Biotech contributes pathogen knowledge, vaccine development experience, wet-lab validation, manufacturing context, and global health credibility. IBM contributes quantum hardware access, hybrid quantum-classical tooling, and research experience in mRNA secondary-structure optimization.</p>
+          <p>The app does not claim that such a partnership has been announced. It is a strategic simulator based on the concept note and current public research showing that quantum-assisted mRNA folding is moving from theory toward practical experiments.</p>
+        </div>
+        <aside class="partnership-stack">
+          <article>
+            <span>Bharat Biotech layer</span>
+            <strong>Biology, validation, manufacturing</strong>
+          </article>
+          <article>
+            <span>IBM layer</span>
+            <strong>Quantum cloud, VQA/CVaR, hybrid compute</strong>
+          </article>
+          <article>
+            <span>QuantaVax layer</span>
+            <strong>Candidate triage and decision support</strong>
+          </article>
+        </aside>
+      </section>
+
+      <section class="narrative-flow" aria-label="partnership workflow">
+        <article>
+          <span>01</span>
+          <strong>Define vaccine target</strong>
+          <p>Bharat Biotech frames the pathogen, antigen, validation constraints, and manufacturing realities.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <strong>Encode mRNA problem</strong>
+          <p>The candidate sequence is converted into folding and stability questions the simulator can score.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <strong>Run IBM-style quantum search</strong>
+          <p>A hybrid quantum-classical sampler explores difficult structural possibilities and filters the best tail.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <strong>Confirm antigen signal</strong>
+          <p>Predicted conformers are checked for exposed epitopes, binding pockets, and confidence signals.</p>
+        </article>
+        <article>
+          <span>05</span>
+          <strong>Prioritize wet-lab work</strong>
+          <p>The platform estimates which candidates deserve scarce validation capacity first.</p>
+        </article>
+      </section>
+
       <section class="workspace-grid">
         <aside class="control-rail" aria-label="simulation controls">
+          <div class="rail-intro">
+            <span>Live simulator</span>
+            <strong>Change the assumptions and watch the partnership model recalculate.</strong>
+          </div>
           <div class="panel compact">
             <div class="panel-head">
-              <h2>Candidate</h2>
+              <h2>Vaccine candidate brief</h2>
               <span id="candidateTag">QVX-17</span>
             </div>
             <label class="field">
@@ -38,14 +93,14 @@
               <textarea id="sequenceInput" spellcheck="false">AUGGCUACCGUUAAGGAGCUAUGGCUAACCGGUAAGCUUAACGGUACCUAAGGCUUAGCU</textarea>
             </label>
             <div class="button-row">
-              <button id="runButton" class="primary-button" type="button">Run simulation</button>
+              <button id="runButton" class="primary-button" type="button">Simulate run</button>
               <button id="mutateButton" class="icon-button" type="button" aria-label="Generate variant" title="Generate variant">+</button>
             </div>
           </div>
 
           <div class="panel compact">
             <div class="panel-head">
-              <h2>Quantum stack</h2>
+              <h2>IBM Quantum stack</h2>
               <span id="qubitReadout">96 qubits</span>
             </div>
             <label class="slider">
@@ -64,7 +119,7 @@
 
           <div class="panel compact">
             <div class="panel-head">
-              <h2>Baseline budget</h2>
+              <h2>Discovery baseline</h2>
               <span>USD</span>
             </div>
             <label class="field small-field">
@@ -79,6 +134,10 @@
         </aside>
 
         <section class="main-stage" aria-label="simulation outputs">
+          <div class="stage-intro">
+            <span class="section-kicker">What the model answers</span>
+            <h2>Can quantum-assisted triage compress early vaccine discovery before Bharat Biotech commits wet-lab capacity?</h2>
+          </div>
           <div class="metric-band">
             <article class="metric-card">
               <span>Time saved</span>
@@ -109,7 +168,7 @@
                 <span id="energyReadout">0.00 kcal/mol</span>
               </div>
               <canvas id="foldCanvas" width="920" height="520" aria-label="RNA folding visualization"></canvas>
-              <div class="canvas-hint" id="foldHint">Move the pointer across the fold map to inspect candidate pairings.</div>
+              <div class="canvas-hint" id="foldHint">This shows how the mRNA message may fold. Better folding predictions help avoid unstable or inefficient candidate messages.</div>
             </article>
 
             <article class="visual-panel">
@@ -124,7 +183,7 @@
           <div class="simulation-grid">
             <article class="visual-panel quantum-panel">
               <div class="panel-head">
-                <h2>Quantum algorithm simulator</h2>
+                <h2>IBM-style quantum algorithm simulator</h2>
                 <span id="quantumStage">sampling states</span>
               </div>
               <canvas id="quantumCanvas" width="920" height="440" aria-label="animated quantum algorithm flow"></canvas>
@@ -141,7 +200,7 @@
                 <span id="hotspotReadout">click a hotspot</span>
               </div>
               <canvas id="moleculeCanvas" width="920" height="560" aria-label="interactive molecular prediction viewer"></canvas>
-              <div class="canvas-hint">Click colored hotspots to inspect epitope exposure and binding confidence.</div>
+              <div class="canvas-hint">Click colored hotspots to inspect epitope exposure and binding confidence before wet-lab prioritization.</div>
             </article>
           </div>
 
@@ -180,14 +239,14 @@
         </article>
         <article>
           <h2>Reference anchors</h2>
-          <p>IBM and Moderna reported quantum-assisted mRNA secondary-structure work at up to 60 nucleotides and 80-plus qubits. Published RNA folding work maps fold prediction into QUBO/Ising-style optimization. Drug and vaccine development cost/time baselines vary widely, so this app lets the user tune the baseline.</p>
+          <p>IBM and Moderna reported quantum-assisted mRNA secondary-structure work at up to 60 nucleotides and 80 qubits. Bharat Biotech describes world-class R&D and manufacturing capabilities. The partnership in this app is hypothetical and intended to illustrate the concept note’s platform logic.</p>
         </article>
       </section>
 
       <footer class="site-footer">
         <div>
           <strong>Copyright 2026 Nishant Prabhakar. All rights reserved.</strong>
-          <p>Disclaimer: QuantaVax is an exploratory simulation interface for strategic and educational analysis. It is not a medical device, diagnostic system, clinical decision tool, regulatory submission, or guarantee of vaccine efficacy, cost savings, timelines, manufacturability, safety, or approval.</p>
+          <p>Disclaimer: QuantaVax is an exploratory simulation interface for strategic and educational analysis of a potential Bharat Biotech and IBM-style quantum partnership. It is not an announcement of partnership, a medical device, diagnostic system, clinical decision tool, regulatory submission, or guarantee of vaccine efficacy, cost savings, timelines, manufacturability, safety, or approval.</p>
         </div>
         <span><a href="./learn.html">Read the guide</a></span>
       </footer>
