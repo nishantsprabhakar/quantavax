@@ -49,3 +49,10 @@ buttons.forEach((button) => {
 });
 
 meter.style.width = conceptContent.folding.meter;
+
+const glowTargets = ".guide-hero, .guide-flow article, .interactive-guide, .deep-section, .detail-card, .algorithm-explainer, .algorithm-lanes article, .mechanics-panel, .mechanic-card, .mechanic-flow div, .accordion-panel, .research-panel, .guide-summary, .site-footer";
+document.querySelectorAll(glowTargets).forEach((box) => {
+  box.addEventListener("click", () => {
+    box.classList.toggle("is-glowing");
+  });
+});
