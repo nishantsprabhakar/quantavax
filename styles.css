@@ -553,10 +553,16 @@ canvas {
   max-width: 1320px;
 }
 
-.explain-hero,
-.process-panel,
-.explain-card,
-.signal-tile {
+.guide-hero,
+.guide-flow article,
+.interactive-guide,
+.deep-section,
+.detail-card,
+.algorithm-explainer,
+.algorithm-lanes article,
+.accordion-panel,
+.research-panel,
+.guide-summary {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -566,26 +572,30 @@ canvas {
   backdrop-filter: blur(18px);
 }
 
-.explain-hero {
+.guide-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
   gap: 18px;
   margin-top: 20px;
   padding: clamp(22px, 4vw, 42px);
 }
 
-.explain-hero h2 {
+.guide-hero h2 {
   max-width: 980px;
   margin-bottom: 16px;
   font-size: clamp(1.7rem, 4vw, 3.5rem);
   line-height: 1.03;
 }
 
-.explain-hero p,
-.explain-card p,
-.process-steps p,
-.readout-list p,
-.signal-tile p {
+.guide-copy p,
+.guide-flow p,
+.detail-card p,
+.algorithm-lanes p,
+.accordion-panel p,
+.research-panel p,
+.research-panel li,
+.guide-summary p,
+.concept-display p {
   color: var(--muted);
   line-height: 1.65;
 }
@@ -600,13 +610,13 @@ canvas {
   text-transform: uppercase;
 }
 
-.signal-tile {
+.guide-summary {
   align-self: stretch;
   padding: 22px;
   background: linear-gradient(135deg, rgba(57, 245, 182, 0.14), rgba(101, 214, 255, 0.08)), rgba(6, 29, 31, 0.92);
 }
 
-.signal-tile span {
+.guide-summary span {
   display: block;
   color: var(--muted);
   font-size: 0.78rem;
@@ -614,71 +624,194 @@ canvas {
   text-transform: uppercase;
 }
 
-.signal-tile strong {
+.guide-summary strong {
   display: block;
   margin: 18px 0 12px;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   line-height: 0.95;
 }
 
-.explain-grid {
+.guide-flow {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
   margin-top: 16px;
 }
 
-.explain-grid.three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.guide-flow article {
+  min-height: 190px;
+  padding: 18px;
 }
 
-.explain-card,
-.process-panel {
+.guide-flow span,
+.algorithm-lanes span {
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guide-flow strong {
+  display: block;
+  margin: 16px 0 8px;
+  font-size: 1.1rem;
+}
+
+.interactive-guide,
+.algorithm-explainer,
+.accordion-panel,
+.research-panel,
+.deep-section {
+  margin-top: 16px;
   padding: 22px;
 }
 
-.explain-card h2 {
-  margin-bottom: 10px;
-  font-size: 1.25rem;
-}
-
-.process-panel {
-  margin-top: 16px;
-}
-
-.process-steps {
+.concept-layout {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 16px;
 }
 
-.process-steps article {
-  min-height: 180px;
-  padding: 16px;
+.concept-controls {
+  display: grid;
+  gap: 10px;
+}
+
+.concept-button {
+  min-height: 54px;
+  border: 1px solid rgba(126, 242, 216, 0.18);
+  border-radius: 8px;
+  background: rgba(2, 9, 10, 0.38);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 850;
+  text-align: left;
+  padding: 0 14px;
+}
+
+.concept-button.active {
+  border-color: rgba(57, 245, 182, 0.56);
+  background: linear-gradient(135deg, rgba(57, 245, 182, 0.2), rgba(101, 214, 255, 0.1));
+  box-shadow: 0 0 26px rgba(57, 245, 182, 0.14);
+}
+
+.concept-display {
   border: 1px solid rgba(126, 242, 216, 0.16);
   border-radius: 8px;
-  background: rgba(2, 9, 10, 0.28);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(101, 214, 255, 0.12), transparent 32%),
+    rgba(2, 9, 10, 0.28);
+  padding: clamp(18px, 3vw, 30px);
 }
 
-.process-steps strong,
-.readout-list strong {
-  color: var(--ink);
+.concept-display h2 {
+  max-width: 780px;
+  margin-bottom: 12px;
+  font-size: clamp(1.45rem, 3vw, 2.6rem);
+  line-height: 1.08;
 }
 
-.readout-list {
+.concept-meter {
+  height: 10px;
+  margin: 22px 0 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.concept-meter span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--blue), var(--amber));
+  transition: width 260ms ease;
+}
+
+.concept-note {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.section-intro {
+  max-width: 880px;
+  margin-bottom: 18px;
+}
+
+.section-intro h2 {
+  font-size: clamp(1.55rem, 3vw, 2.65rem);
+  line-height: 1.07;
+}
+
+.detail-grid {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.detail-card {
+  padding: 20px;
+  background: rgba(2, 9, 10, 0.32);
+}
+
+.detail-card h3,
+.algorithm-lanes h3 {
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+}
+
+.algorithm-lanes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
-.readout-list p {
-  margin: 0;
-  padding: 14px 16px;
-  border-left: 3px solid var(--green);
-  background: rgba(2, 9, 10, 0.28);
+.algorithm-lanes article {
+  padding: 18px;
+  background: rgba(2, 9, 10, 0.32);
 }
 
-.caution {
-  border-color: rgba(255, 211, 124, 0.28);
+.accordion-panel details {
+  border-top: 1px solid rgba(126, 242, 216, 0.14);
+  padding: 16px 0;
+}
+
+.accordion-panel details:first-of-type {
+  border-top: 0;
+}
+
+.accordion-panel summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.accordion-panel p {
+  margin: 12px 0 0;
+}
+
+.research-panel {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.45fr) minmax(0, 0.55fr);
+  gap: 20px;
+}
+
+.research-panel h2 {
+  font-size: clamp(1.45rem, 3vw, 2.4rem);
+  line-height: 1.08;
+}
+
+.research-panel ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.research-panel a {
+  color: var(--green);
+  text-decoration: none;
 }
 
 @media (max-width: 1100px) {
@@ -686,8 +819,11 @@ canvas {
   .visual-grid,
   .simulation-grid,
   .evidence-band,
-  .explain-hero,
-  .explain-grid.three {
+  .guide-hero,
+  .guide-flow,
+  .concept-layout,
+  .research-panel,
+  .algorithm-lanes {
     grid-template-columns: 1fr;
   }
 
@@ -698,7 +834,7 @@ canvas {
 
   .metric-band,
   .algorithm-grid,
-  .process-steps {
+  .detail-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -746,8 +882,9 @@ canvas {
     flex-direction: column;
   }
 
-  .explain-grid,
-  .process-steps {
+  .guide-flow,
+  .detail-grid,
+  .algorithm-lanes {
     grid-template-columns: 1fr;
   }
 }
